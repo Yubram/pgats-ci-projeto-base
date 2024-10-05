@@ -1,0 +1,40 @@
+#CI de nivel 01 - disparo manual a partiar de 1 clique
+
+
+#Nome que vai aparecer la nas opções de paipe
+name: 'YFG - PGATS-d9 - Execução Manual '
+
+#triggers ou gatilhos de execução
+  #gatilho de execoao manual = workflow_dispatch
+
+on:
+  workflow_dispatch:
+
+
+#criar sequencias de fluxos de trabalhos.
+#descrição dos jobs
+jobs:
+  e2e-tests:
+    #máquina que o job vai executar
+    runs-on: ['ubuntu-latest']
+    #passo a passo das ações do job
+    steps:
+    # - run: |
+    #     git clone (direction)
+      - uses: actions/checkout@v4
+      #instalar as dependencias 
+      #o node é um dos casos, mas já tá instaldo.
+      # - uses: actions/setup-node@v4
+        # with: 
+          # node-version: list/*
+      - name: Instalando Yarn
+        run: npm install -g yarn
+
+      - name: Instalando dependências
+        run: yarn 
+
+      - name: Instalando Playwright
+        run: yarn playwright install
+
+      - name: Testes E2E (end-to-end)
+        run: yarn run e2e

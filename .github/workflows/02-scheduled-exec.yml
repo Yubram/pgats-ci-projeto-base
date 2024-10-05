@@ -1,14 +1,15 @@
-#CI de nivel 01 - disparo manual a partiar de 1 clique
+#CI de nivel 0102 - disparo automático em período definidos
 
 
 #Nome que vai aparecer la nas opções de paipe
-name: 'YFG - PGATS-d9 - Execução Manual '
+name: 'YFG - PGATS-d9 - Execução Agendada '
 
 #triggers ou gatilhos de execução
-  #gatilho de execoao manual = workflow_dispatch
+  #gatilho de execoao agendade = schedule
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * 1'
 
 
 #criar sequencias de fluxos de trabalhos.

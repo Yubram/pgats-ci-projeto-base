@@ -1,14 +1,20 @@
-#CI de nivel 01 - disparo manual a partiar de 1 clique
+#CI de nivel 03 - disparo automático sempre que outro for concluído. exemplo o deploy
 
 
 #Nome que vai aparecer la nas opções de paipe
-name: 'YFG - PGATS-d9 - Execução Manual'
+name: 'YFG - PGATS-d9 - Execução por Deploy '
 
 #triggers ou gatilhos de execução
-  #gatilho de execoao manual = workflow_dispatch
+  #gatilho de execução após outro workflow = workflow_run
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    #qual workflow será monitorado
+    workflows: ['YFG - PGATS-d9 - Execução Manual']
+    #2º parametrom, o tipo de evento monitorado
+    #sempre
+    types:
+      - completed
 
 
 #criar sequencias de fluxos de trabalhos.

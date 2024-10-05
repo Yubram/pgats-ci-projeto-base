@@ -36,5 +36,5 @@ jobs:
       - name: Instalando Playwright
         run: yarn playwright install
 
-      - name: Testes E2E (end-to-end) Mudei para testar
+      - name: Testes E2E (end-to-end)
         run: yarn run e2e

@@ -23,6 +23,9 @@ jobs:
   e2e-tests:
     #máquina que o job vai executar
     runs-on: ['ubuntu-latest']
+    
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     #passo a passo das ações do job
     steps:
     # - run: |

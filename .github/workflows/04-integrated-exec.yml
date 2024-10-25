@@ -1,8 +1,20 @@
-# CI Nivel 4
+# CI de Nível 04 - Disparo dentro do fluxo de CI de desenvolvimento
 
-name: 'Inspection'
+# nome que vai aparecer la nas opções de pipe
+name: 'YFG - PGATS-d9 - Execução Integrada'
+
+# regras de disparo da execucao (triggers/gatilhos)
+# gatilho de exec manual = workflow_dispatch
 
 on: workflow_dispatch
+# inspecao
+#   padronizacao (formatacao de código)
+# testes 💜
+#   unidade
+#   e2e 💜
+#     build
+# deploy
+
 jobs:
   #descriçao
   inspection:
@@ -36,7 +48,12 @@ jobs:
 
       - name: Instalando dependencias
         run: yarn
-      # CI Nivel 2 -  Disparo manual a partir de um clique
+
+      - name: Instalando Playwright
+        run: yarn playwright install
+
+      - name: Testes E2E (end-to-end)
+        run: yarn run e2e
 
       # disponibilizando relatorio (artefato)
       - uses: actions/upload-artifact@v4

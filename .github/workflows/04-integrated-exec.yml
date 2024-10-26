@@ -34,7 +34,7 @@ jobs:
       - name: Padronização de código (Lint)
         run: yarn lint
 
- unit:
+  unit:
     #maquina que o job vai executar
     runs-on: ['ubuntu-latest']
 

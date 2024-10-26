@@ -51,7 +51,6 @@ jobs:
       - name: Testes de Unidade
         run: yarn run test
 
-
   #descriçao
   e2e-tests:
     #maquina que o job vai executar
